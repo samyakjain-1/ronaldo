@@ -27,5 +27,8 @@ filtered = goals_per_year[goals_per_year["Club"].isin(selected_clubs)]
 # Pivot the data so each club is a column, years are the index
 pivot_df = filtered.pivot(index="Year", columns="Club", values="Goals").fillna(0).astype(int)
 
+#treat the year as a string
+pivot_df.index = pivot_df.index.astype(str)
+
 # Show chart
 st.line_chart(pivot_df)
