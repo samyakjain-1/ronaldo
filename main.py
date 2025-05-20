@@ -70,6 +70,10 @@ st.markdown("These are the teams he has scored the most goals against.")
 # Bar chart
 st.bar_chart(top_opponents)
 
+
+# Count goals per opponent
+top_opponents = df["Opponent"].value_counts().head(5).reset_index()
+top_opponents.columns = ["Opponent", "Goals"]
 # Altair bar chart with horizontal labels
 bar_chart = alt.Chart(top_opponents).mark_bar().encode(
     x=alt.X("Opponent", sort="-y", axis=alt.Axis(labelAngle=0)),
