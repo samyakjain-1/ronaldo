@@ -68,10 +68,11 @@ st.markdown("These are the teams he has scored the most goals against.")
 top_opponents = df["Opponent"].value_counts().head(5).reset_index()
 top_opponents.columns = ["Opponent", "Goals"]
 
-# Altair bar chart with horizontal labels
+# Altair bar chart with horizontal labels and unique colors
 bar_chart = alt.Chart(top_opponents).mark_bar().encode(
     x=alt.X("Opponent", sort="-y", axis=alt.Axis(labelAngle=0)),
-    y="Goals"
+    y="Goals",
+    color=alt.Color("Opponent", legend=None)  # Color by opponent, hide legend
 ).properties(width=600, height=400)
 
 st.altair_chart(bar_chart, use_container_width=True)
