@@ -1,7 +1,5 @@
-import pandas as pd
-import numpy as np
 import streamlit as st
-import plotly.express as px
+import pandas as pd
 
 # Load data
 df = pd.read_csv("ronaldo.csv")
@@ -10,30 +8,24 @@ df = pd.read_csv("ronaldo.csv")
 df["Date"] = pd.to_datetime(df["Date"], errors='coerce')
 df["Year"] = df["Date"].dt.year
 
-# Filter out rows where Club or Year is missing
+# Filter for valid Club and Year data
 club_df = df.dropna(subset=["Club", "Year"])
 
-# Group by Year and Club, count goals
+# Group by Year and Club
 goals_per_year = club_df.groupby(["Year", "Club"]).size().reset_index(name="Goals")
 
-# Streamlit app title
+# Streamlit app UI
 st.title("Cristiano Ronaldo - Club Goals Per Year")
 
-# Let user pick clubs to include
+# Multiselect club filter
 clubs = goals_per_year["Club"].unique()
-selected_clubs = st.multiselect("Select Clubs", clubs, default=list(clubs))
+selected_clubs = st.multiselect("Select Clubs", sorted(clubs), default=list(clubs))
 
-# Filter data based on selection
-filtered_data = goals_per_year[goals_per_year["Club"].isin(selected_clubs)]
+# Filter the grouped data
+filtered = goals_per_year[goals_per_year["Club"].isin(selected_clubs)]
 
-# Plot using matplotlib
-fig, ax = plt.subplots(figsize=(10, 5))
-for club in selected_clubs:
-    club_data = filtered_data[filtered_data["Club"] == club]
-    ax.plot(club_data["Year"], club_data["Goals"], marker='o', label=club)
+# Pivot the data so each club is a column, years are the index
+pivot_df = filtered.pivot(index="Year", columns="Club", values="Goals").fillna(0).astype(int)
 
-ax.set_xlabel("Year")
-ax.set_ylabel("Goals")
-ax.set_title("Goals per Year by Club")
-ax.legend()
-st.pyplot(fig)
+# Show chart
+st.line_chart(pivot_df)
