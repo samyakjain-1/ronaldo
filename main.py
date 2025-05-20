@@ -57,3 +57,15 @@ st.markdown(f"**Overall Average Minute per Goal:** {total_avg_minute}")
 
 # Line chart
 st.line_chart(minutes_per_goal)
+
+# Count goals per opponent
+top_opponents = df["Opponent"].value_counts().head(5).reset_index()
+top_opponents.columns = ["Opponent", "Goals"]
+top_opponents = top_opponents.set_index("Opponent")
+
+# UI
+st.title("Cristiano Ronaldo - Top 5 Favorite Opponents")
+st.markdown("These are the teams he has scored the most goals against.")
+
+# Bar chart
+st.bar_chart(top_opponents)
