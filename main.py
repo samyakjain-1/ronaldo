@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import re
-
+import altair as alt
 # Load data
 df = pd.read_csv("ronaldo.csv")
 
