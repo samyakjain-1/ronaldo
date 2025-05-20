@@ -69,3 +69,11 @@ st.markdown("These are the teams he has scored the most goals against.")
 
 # Bar chart
 st.bar_chart(top_opponents)
+
+# Altair bar chart with horizontal labels
+bar_chart = alt.Chart(top_opponents).mark_bar().encode(
+    x=alt.X("Opponent", sort="-y", axis=alt.Axis(labelAngle=0)),
+    y="Goals"
+).properties(width=600, height=400)
+
+st.altair_chart(bar_chart, use_container_width=True)
