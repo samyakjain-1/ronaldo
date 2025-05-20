@@ -76,3 +76,20 @@ bar_chart = alt.Chart(top_opponents).mark_bar().encode(
 ).properties(width=600, height=400)
 
 st.altair_chart(bar_chart, use_container_width=True)
+
+# Count goals by type
+goal_type_counts = df["Goal Type"].value_counts().reset_index()
+goal_type_counts.columns = ["Goal Type", "Count"]
+
+# Streamlit UI
+st.title("Cristiano Ronaldo - Goal Type Breakdown")
+st.markdown("Here's how Ronaldo has scored his goals – left foot, right foot, headers, and more.")
+
+# Altair pie chart
+pie_chart = alt.Chart(goal_type_counts).mark_arc(innerRadius=60).encode(
+    theta=alt.Theta(field="Count", type="quantitative"),
+    color=alt.Color(field="Goal Type", type="nominal"),
+    tooltip=["Goal Type", "Count"]
+).properties(width=500, height=500)
+
+st.altair_chart(pie_chart, use_container_width=True)
