@@ -1,0 +1,109 @@
+date,home_team,away_team,team,scorer,minute,own_goal,penalty
+2004-06-12,Portugal,Greece,portugal,cristiano ronaldo,90.0,False,False
+2004-06-30,Portugal,Netherlands,portugal,cristiano ronaldo,26.0,False,False
+2004-09-04,Latvia,Portugal,portugal,cristiano ronaldo,57.0,False,False
+2004-09-08,Portugal,Estonia,portugal,cristiano ronaldo,75.0,False,False
+2004-10-13,Portugal,Russia,portugal,cristiano ronaldo,39.0,False,False
+2004-10-13,Portugal,Russia,portugal,cristiano ronaldo,69.0,False,False
+2004-11-17,Luxembourg,Portugal,portugal,cristiano ronaldo,28.0,False,False
+2005-06-04,Portugal,Slovakia,portugal,cristiano ronaldo,42.0,False,False
+2005-06-08,Estonia,Portugal,portugal,cristiano ronaldo,32.0,False,False
+2006-06-17,Portugal,Iran,portugal,cristiano ronaldo,80.0,False,True
+2006-10-07,Portugal,Azerbaijan,portugal,cristiano ronaldo,25.0,False,False
+2006-10-07,Portugal,Azerbaijan,portugal,cristiano ronaldo,63.0,False,False
+2006-11-15,Portugal,Kazakhstan,portugal,cristiano ronaldo,30.0,False,False
+2007-03-24,Portugal,Belgium,portugal,cristiano ronaldo,55.0,False,False
+2007-03-24,Portugal,Belgium,portugal,cristiano ronaldo,75.0,False,False
+2007-08-22,Armenia,Portugal,portugal,cristiano ronaldo,37.0,False,False
+2007-09-08,Portugal,Poland,portugal,cristiano ronaldo,73.0,False,False
+2007-10-17,Kazakhstan,Portugal,portugal,cristiano ronaldo,90.0,False,False
+2008-06-11,Czech Republic,Portugal,portugal,cristiano ronaldo,63.0,False,False
+2010-06-21,Portugal,North Korea,portugal,cristiano ronaldo,87.0,False,False
+2010-10-08,Portugal,Denmark,portugal,cristiano ronaldo,85.0,False,False
+2010-10-12,Iceland,Portugal,portugal,cristiano ronaldo,3.0,False,False
+2011-09-02,Cyprus,Portugal,portugal,cristiano ronaldo,35.0,False,True
+2011-09-02,Cyprus,Portugal,portugal,cristiano ronaldo,83.0,False,False
+2011-10-11,Denmark,Portugal,portugal,cristiano ronaldo,90.0,False,False
+2011-11-15,Portugal,Bosnia and Herzegovina,portugal,cristiano ronaldo,8.0,False,False
+2011-11-15,Portugal,Bosnia and Herzegovina,portugal,cristiano ronaldo,53.0,False,False
+2012-06-17,Portugal,Netherlands,portugal,cristiano ronaldo,28.0,False,False
+2012-06-17,Portugal,Netherlands,portugal,cristiano ronaldo,74.0,False,False
+2012-06-21,Czech Republic,Portugal,portugal,cristiano ronaldo,79.0,False,False
+2012-09-07,Luxembourg,Portugal,portugal,cristiano ronaldo,28.0,False,False
+2013-09-06,Northern Ireland,Portugal,portugal,cristiano ronaldo,68.0,False,False
+2013-09-06,Northern Ireland,Portugal,portugal,cristiano ronaldo,77.0,False,False
+2013-09-06,Northern Ireland,Portugal,portugal,cristiano ronaldo,83.0,False,False
+2013-11-15,Portugal,Sweden,portugal,cristiano ronaldo,82.0,False,False
+2013-11-19,Sweden,Portugal,portugal,cristiano ronaldo,50.0,False,False
+2013-11-19,Sweden,Portugal,portugal,cristiano ronaldo,77.0,False,False
+2013-11-19,Sweden,Portugal,portugal,cristiano ronaldo,79.0,False,False
+2014-06-26,Portugal,Ghana,portugal,cristiano ronaldo,80.0,False,False
+2014-10-14,Denmark,Portugal,portugal,cristiano ronaldo,90.0,False,False
+2014-11-14,Portugal,Armenia,portugal,cristiano ronaldo,72.0,False,False
+2015-06-13,Armenia,Portugal,portugal,cristiano ronaldo,29.0,False,True
+2015-06-13,Armenia,Portugal,portugal,cristiano ronaldo,55.0,False,False
+2015-06-13,Armenia,Portugal,portugal,cristiano ronaldo,58.0,False,False
+2016-06-22,Hungary,Portugal,portugal,cristiano ronaldo,50.0,False,False
+2016-06-22,Hungary,Portugal,portugal,cristiano ronaldo,62.0,False,False
+2016-07-06,Portugal,Wales,portugal,cristiano ronaldo,50.0,False,False
+2016-10-07,Portugal,Andorra,portugal,cristiano ronaldo,2.0,False,False
+2016-10-07,Portugal,Andorra,portugal,cristiano ronaldo,4.0,False,False
+2016-10-07,Portugal,Andorra,portugal,cristiano ronaldo,47.0,False,False
+2016-10-07,Portugal,Andorra,portugal,cristiano ronaldo,68.0,False,False
+2016-10-10,Faroe Islands,Portugal,portugal,cristiano ronaldo,65.0,False,False
+2016-11-13,Portugal,Latvia,portugal,cristiano ronaldo,28.0,False,True
+2016-11-13,Portugal,Latvia,portugal,cristiano ronaldo,85.0,False,False
+2017-03-25,Portugal,Hungary,portugal,cristiano ronaldo,36.0,False,False
+2017-03-25,Portugal,Hungary,portugal,cristiano ronaldo,65.0,False,False
+2017-06-09,Latvia,Portugal,portugal,cristiano ronaldo,41.0,False,False
+2017-06-09,Latvia,Portugal,portugal,cristiano ronaldo,63.0,False,False
+2017-06-21,Russia,Portugal,portugal,cristiano ronaldo,8.0,False,False
+2017-06-24,New Zealand,Portugal,portugal,cristiano ronaldo,33.0,False,True
+2017-08-31,Portugal,Faroe Islands,portugal,cristiano ronaldo,3.0,False,False
+2017-08-31,Portugal,Faroe Islands,portugal,cristiano ronaldo,28.0,False,True
+2017-08-31,Portugal,Faroe Islands,portugal,cristiano ronaldo,65.0,False,False
+2017-10-07,Andorra,Portugal,portugal,cristiano ronaldo,63.0,False,False
+2018-06-15,Portugal,Spain,portugal,cristiano ronaldo,4.0,False,True
+2018-06-15,Portugal,Spain,portugal,cristiano ronaldo,44.0,False,False
+2018-06-15,Portugal,Spain,portugal,cristiano ronaldo,88.0,False,False
+2018-06-20,Portugal,Morocco,portugal,cristiano ronaldo,4.0,False,False
+2019-06-05,Portugal,Switzerland,portugal,cristiano ronaldo,25.0,False,False
+2019-06-05,Portugal,Switzerland,portugal,cristiano ronaldo,88.0,False,False
+2019-06-05,Portugal,Switzerland,portugal,cristiano ronaldo,90.0,False,False
+2019-09-07,Serbia,Portugal,portugal,cristiano ronaldo,80.0,False,False
+2019-09-10,Lithuania,Portugal,portugal,cristiano ronaldo,7.0,False,True
+2019-09-10,Lithuania,Portugal,portugal,cristiano ronaldo,62.0,False,False
+2019-09-10,Lithuania,Portugal,portugal,cristiano ronaldo,65.0,False,False
+2019-09-10,Lithuania,Portugal,portugal,cristiano ronaldo,76.0,False,False
+2019-10-11,Portugal,Luxembourg,portugal,cristiano ronaldo,65.0,False,False
+2019-10-14,Ukraine,Portugal,portugal,cristiano ronaldo,72.0,False,True
+2019-11-14,Portugal,Lithuania,portugal,cristiano ronaldo,7.0,False,True
+2019-11-14,Portugal,Lithuania,portugal,cristiano ronaldo,22.0,False,False
+2019-11-14,Portugal,Lithuania,portugal,cristiano ronaldo,65.0,False,False
+2019-11-17,Luxembourg,Portugal,portugal,cristiano ronaldo,86.0,False,False
+2020-09-08,Sweden,Portugal,portugal,cristiano ronaldo,45.0,False,False
+2020-09-08,Sweden,Portugal,portugal,cristiano ronaldo,72.0,False,False
+2021-03-30,Luxembourg,Portugal,portugal,cristiano ronaldo,51.0,False,False
+2021-06-15,Hungary,Portugal,portugal,cristiano ronaldo,87.0,False,True
+2021-06-15,Hungary,Portugal,portugal,cristiano ronaldo,90.0,False,False
+2021-06-19,Germany,Portugal,portugal,cristiano ronaldo,15.0,False,False
+2021-06-23,Portugal,France,portugal,cristiano ronaldo,31.0,False,True
+2021-06-23,Portugal,France,portugal,cristiano ronaldo,60.0,False,True
+2021-09-01,Portugal,Republic of Ireland,portugal,cristiano ronaldo,89.0,False,False
+2021-09-01,Portugal,Republic of Ireland,portugal,cristiano ronaldo,90.0,False,False
+2021-10-12,Portugal,Luxembourg,portugal,cristiano ronaldo,8.0,False,True
+2021-10-12,Portugal,Luxembourg,portugal,cristiano ronaldo,13.0,False,True
+2021-10-12,Portugal,Luxembourg,portugal,cristiano ronaldo,87.0,False,False
+2022-06-05,Portugal,Switzerland,portugal,cristiano ronaldo,35.0,False,False
+2022-06-05,Portugal,Switzerland,portugal,cristiano ronaldo,39.0,False,False
+2022-11-24,Portugal,Ghana,portugal,cristiano ronaldo,65.0,False,True
+2023-03-23,Portugal,Liechtenstein,portugal,cristiano ronaldo,51.0,False,True
+2023-03-23,Portugal,Liechtenstein,portugal,cristiano ronaldo,63.0,False,False
+2023-03-26,Luxembourg,Portugal,portugal,cristiano ronaldo,9.0,False,False
+2023-03-26,Luxembourg,Portugal,portugal,cristiano ronaldo,31.0,False,False
+2023-06-20,Iceland,Portugal,portugal,cristiano ronaldo,89.0,False,False
+2023-10-13,Portugal,Slovakia,portugal,cristiano ronaldo,29.0,False,True
+2023-10-13,Portugal,Slovakia,portugal,cristiano ronaldo,72.0,False,False
+2023-10-16,Bosnia and Herzegovina,Portugal,portugal,cristiano ronaldo,5.0,False,True
+2023-10-16,Bosnia and Herzegovina,Portugal,portugal,cristiano ronaldo,20.0,False,False
+2023-11-16,Liechtenstein,Portugal,portugal,cristiano ronaldo,46.0,False,False
