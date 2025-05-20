@@ -8,27 +8,18 @@ df = pd.read_csv("ronaldo.csv")
 df["Date"] = pd.to_datetime(df["Date"], errors='coerce')
 df["Year"] = df["Date"].dt.year
 
-# Filter for valid Club and Year data
-club_df = df.dropna(subset=["Club", "Year"])
+# Drop rows where Year is missing
+df = df.dropna(subset=["Year"])
 
-# Group by Year and Club
-goals_per_year = club_df.groupby(["Year", "Club"]).size().reset_index(name="Goals")
+# Group by Year and count goals
+goals_per_year = df.groupby("Year").size().reset_index(name="Goals")
 
-# Streamlit app UI
-st.title("Cristiano Ronaldo - Club Goals Per Year")
+# Convert Year to string to avoid formatting like 2,008
+goals_per_year["Year"] = goals_per_year["Year"].astype(str)
+goals_per_year = goals_per_year.set_index("Year")
 
-# Multiselect club filter
-clubs = goals_per_year["Club"].unique()
-selected_clubs = st.multiselect("Select Clubs", sorted(clubs), default=list(clubs))
+# Streamlit UI
+st.title("Cristiano Ronaldo - Goals Per Year")
 
-# Filter the grouped data
-filtered = goals_per_year[goals_per_year["Club"].isin(selected_clubs)]
-
-# Pivot the data so each club is a column, years are the index
-pivot_df = filtered.pivot(index="Year", columns="Club", values="Goals").fillna(0).astype(int)
-
-#treat the year as a string
-pivot_df.index = pivot_df.index.astype(str)
-
-# Show chart
-st.line_chart(pivot_df)
+# Line chart of total goals per year
+st.line_chart(goals_per_year)
