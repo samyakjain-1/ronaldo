@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import re
 
 # Load data
 df = pd.read_csv("ronaldo.csv")
@@ -23,3 +24,30 @@ st.title("Cristiano Ronaldo - Goals Per Year")
 
 # Line chart of total goals per year
 st.line_chart(goals_per_year)
+
+
+def extract_minute(minute_str):
+    if pd.isna(minute_str):
+        return None
+    minute_str = minute_str.replace("'", "")
+    parts = re.split(r"\+|’", minute_str)
+    try:
+        return sum(int(p) for p in parts if p.isdigit())
+    except:
+        return None
+
+df["MinuteValue"] = df["Minute"].apply(extract_minute)
+
+# Drop rows with missing Year or MinuteValue
+df_clean = df.dropna(subset=["Year", "MinuteValue"])
+
+# Group by Year and calculate average minute
+minutes_per_goal = df_clean.groupby("Year")["MinuteValue"].mean().round(2).reset_index()
+minutes_per_goal["Year"] = minutes_per_goal["Year"].astype(str)
+minutes_per_goal = minutes_per_goal.set_index("Year")
+
+# Streamlit UI
+st.title("Cristiano Ronaldo - Average Minute per Goal (Per Year)")
+
+# Line chart
+st.line_chart(minutes_per_goal)
