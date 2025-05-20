@@ -46,8 +46,14 @@ minutes_per_goal = df_clean.groupby("Year")["MinuteValue"].mean().round(2).reset
 minutes_per_goal["Year"] = minutes_per_goal["Year"].astype(str)
 minutes_per_goal = minutes_per_goal.set_index("Year")
 
+# Calculate total average minute
+total_avg_minute = round(df_clean["MinuteValue"].mean(), 2)
+
 # Streamlit UI
 st.title("Cristiano Ronaldo - Average Minute per Goal (Per Year)")
+
+# Display total average
+st.markdown(f"**Overall Average Minute per Goal:** {total_avg_minute}")
 
 # Line chart
 st.line_chart(minutes_per_goal)
