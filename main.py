@@ -84,15 +84,23 @@ df = df.dropna(subset=["MinuteValue"])
 df = df[(df["MinuteValue"] >= 0) & (df["MinuteValue"] <= 120)]
 
 # Streamlit UI
-st.title("Cristiano Ronaldo - Goal Timing Distribution")
-st.markdown("Each dot represents a goal Ronaldo scored. X-axis shows the exact minute (0–120).")
+df["MinuteValue"] = df["Minute"].apply(extract_minute)
+df = df.dropna(subset=["MinuteValue"])
+df = df[(df["MinuteValue"] >= 0) & (df["MinuteValue"] <= 120)]
 
-# Dot plot of goal minutes
-dot_chart = alt.Chart(df).mark_circle(size=60, opacity=0.5).encode(
+# Rank each goal within the same minute to separate on Y axis
+df["StackY"] = df.groupby("MinuteValue").cumcount()
+
+# Streamlit UI
+st.title("Cristiano Ronaldo - Stacked Goal Timing Distribution")
+st.markdown("Each dot represents a goal. Minutes with more than one goal now stack vertically.")
+
+# Altair dot plot with stacked y-axis
+dot_chart = alt.Chart(df).mark_circle(size=60, opacity=0.6).encode(
     x=alt.X("MinuteValue:Q", title="Minute of Goal", scale=alt.Scale(domain=[0, 120])),
-    y=alt.value(1),  # collapse to one row for strip plot
-    tooltip=["Opponent", "Club", "Date", "MinuteValue", "Goal Type"],
-    color=alt.Color("Goal Type", legend=None)
-).properties(height=120)
+    y=alt.Y("StackY:Q", title=None, axis=None),
+    color=alt.Color("Goal Type", legend=None),
+    tooltip=["Opponent", "Club", "Date", "MinuteValue", "Goal Type"]
+).properties(height=300)
 
 st.altair_chart(dot_chart, use_container_width=True)
