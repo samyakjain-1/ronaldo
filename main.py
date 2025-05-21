@@ -77,19 +77,22 @@ bar_chart = alt.Chart(top_opponents).mark_bar().encode(
 
 st.altair_chart(bar_chart, use_container_width=True)
 
-# Count goals by type
-goal_type_counts = df["Goal Type"].value_counts().reset_index()
-goal_type_counts.columns = ["Goal Type", "Count"]
+df["MinuteValue"] = df["Minute"].apply(extract_minute)
+
+# Keep only valid goal minutes
+df = df.dropna(subset=["MinuteValue"])
+df = df[(df["MinuteValue"] >= 0) & (df["MinuteValue"] <= 120)]
 
 # Streamlit UI
-st.title("Cristiano Ronaldo - Goal Type Breakdown")
-st.markdown("Here's how Ronaldo has scored his goals – left foot, right foot, headers, and more.")
+st.title("Cristiano Ronaldo - Goal Timing Distribution")
+st.markdown("Each dot represents a goal Ronaldo scored. X-axis shows the exact minute (0–120).")
 
-# Altair pie chart
-pie_chart = alt.Chart(goal_type_counts).mark_arc(innerRadius=60).encode(
-    theta=alt.Theta(field="Count", type="quantitative"),
-    color=alt.Color(field="Goal Type", type="nominal"),
-    tooltip=["Goal Type", "Count"]
-).properties(width=500, height=500)
+# Dot plot of goal minutes
+dot_chart = alt.Chart(df).mark_circle(size=60, opacity=0.5).encode(
+    x=alt.X("MinuteValue:Q", title="Minute of Goal", scale=alt.Scale(domain=[0, 120])),
+    y=alt.value(1),  # collapse to one row for strip plot
+    tooltip=["Opponent", "Club", "Date", "MinuteValue", "Goal Type"],
+    color=alt.Color("Goal Type", legend=None)
+).properties(height=120)
 
-st.altair_chart(pie_chart, use_container_width=True)
+st.altair_chart(dot_chart, use_container_width=True)
