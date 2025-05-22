@@ -77,13 +77,7 @@ bar_chart = alt.Chart(top_opponents).mark_bar().encode(
 
 st.altair_chart(bar_chart, use_container_width=True)
 
-df["MinuteValue"] = df["Minute"].apply(extract_minute)
-
-# Keep only valid goal minutes
-df = df.dropna(subset=["MinuteValue"])
-df = df[(df["MinuteValue"] >= 0) & (df["MinuteValue"] <= 120)]
-
-# Streamlit UI
+# Process minute values (only once)
 df["MinuteValue"] = df["Minute"].apply(extract_minute)
 df = df.dropna(subset=["MinuteValue"])
 df = df[(df["MinuteValue"] >= 0) & (df["MinuteValue"] <= 120)]
@@ -98,24 +92,35 @@ st.markdown("Each dot represents a goal. Minutes with more than one goal now sta
 # Altair dot plot with stacked y-axis
 dot_chart = alt.Chart(df).mark_circle(size=60, opacity=0.6).encode(
     x=alt.X("MinuteValue:Q", title="Minute of Goal", scale=alt.Scale(domain=[0, 120])),
+    y=alt.Y("StackY:Q", axis=None),  # Hide Y axis since it's just for stacking
     color=alt.Color("Goal Type", legend=None),
     tooltip=["Opponent", "Club", "Date", "MinuteValue", "Goal Type"]
 ).properties(height=300)
 
 st.altair_chart(dot_chart, use_container_width=True)
 
+# Goals by minute intervals
+st.title("Goals by Minute Intervals")
+st.markdown("Distribution of goals across different periods of the game")
 
+# Calculate goals by minute intervals
+df["MinuteInterval"] = pd.cut(
+    df["MinuteValue"], 
+    bins=[0, 15, 30, 45, 60, 75, 90, 105, 120], 
+    labels=["0-15", "15-30", "30-45", "45-60", "60-75", "75-90", "90-105", "105-120"]
+)
 
-#goals by minute intervals (0-15, 15-30, 30-45, 45-60, 60-75, 75-90, 90-105, 105-120)
-st.markdown('## Goals by Minute Intervals')
+# Count goals by minute interval and create a better visualization
+interval_chart = alt.Chart(df).mark_bar().encode(
+    x=alt.X("MinuteInterval:N", title="Game Period (minutes)"),
+    y=alt.Y("count():Q", title="Number of Goals"),
+    color=alt.value("#FF4B4B")  # Use a nice red color
+).properties(
+    title="Goals Scored in Different Game Periods",
+    width=600,
+    height=400
+)
 
-#calculate goals by minute intervals
-df["MinuteInterval"] = pd.cut(df["MinuteValue"], bins=[0, 15, 30, 45, 60, 75, 90, 105, 120], labels=["0-15", "15-30", "30-45", "45-60", "60-75", "75-90", "90-105", "105-120"])
-
-#count goals by minute interval
-goals_by_minute_interval = df.groupby("MinuteInterval").size().reset_index(name="Goals")
-
-#streamlit bar chart
-st.bar_chart(goals_by_minute_interval)
+st.altair_chart(interval_chart, use_container_width=True)
 
 
