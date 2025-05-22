@@ -104,4 +104,18 @@ dot_chart = alt.Chart(df).mark_circle(size=60, opacity=0.6).encode(
 
 st.altair_chart(dot_chart, use_container_width=True)
 
-st.markdown('How ')
+
+
+#goals by minute intervals (0-15, 15-30, 30-45, 45-60, 60-75, 75-90, 90-105, 105-120)
+st.markdown('## Goals by Minute Intervals')
+
+#calculate goals by minute intervals
+df["MinuteInterval"] = pd.cut(df["MinuteValue"], bins=[0, 15, 30, 45, 60, 75, 90, 105, 120], labels=["0-15", "15-30", "30-45", "45-60", "60-75", "75-90", "90-105", "105-120"])
+
+#count goals by minute interval
+goals_by_minute_interval = df.groupby("MinuteInterval").size().reset_index(name="Goals")
+
+#streamlit bar chart
+st.bar_chart(goals_by_minute_interval)
+
+
