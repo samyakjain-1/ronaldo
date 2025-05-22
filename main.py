@@ -98,9 +98,10 @@ st.markdown("Each dot represents a goal. Minutes with more than one goal now sta
 # Altair dot plot with stacked y-axis
 dot_chart = alt.Chart(df).mark_circle(size=60, opacity=0.6).encode(
     x=alt.X("MinuteValue:Q", title="Minute of Goal", scale=alt.Scale(domain=[0, 120])),
-    y=alt.Y("Venue:N", title="Venue")
     color=alt.Color("Goal Type", legend=None),
     tooltip=["Opponent", "Club", "Date", "MinuteValue", "Goal Type"]
 ).properties(height=300)
 
 st.altair_chart(dot_chart, use_container_width=True)
+
+st.markdown('How ')
